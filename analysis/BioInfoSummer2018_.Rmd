@@ -1,5 +1,5 @@
 ---
-title: "Twitter coverage of the Bioinfosummer 2018 summer school"
+title: "Twitter coverage of the AMSI BioInfoSummer 2018 symposium in bioinformatics"
 author: "Rick Tankard, modified from script by Luke Zappia"
 date: "`r Sys.time()`"
 output: 

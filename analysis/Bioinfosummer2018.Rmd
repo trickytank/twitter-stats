@@ -1,6 +1,6 @@
 ---
-title: "Twitter coverage of the ABACBS 2018 conference"
-author: "Luke Zappia"
+title: "Twitter coverage of the Bioinfosummer 2018 summer school"
+author: "Rick Tankard, modified from script by Luke Zappia"
 date: "`r Sys.time()`"
 output: 
   html_document: 
@@ -61,10 +61,10 @@ library("here")
 ```{r params}
 set.seed(1)
 
-hashtag <- "#ABACBS2018"
-conf_name <- "ABACBS 2018 conference"
-timezone <- "Australia/Melbourne"
-days <- c("2018-11-26", "2018-11-27", "2018-11-28")
+hashtag <- "#bioinfosummer"
+conf_name <- "Bioinfosummer 2018"
+timezone <- "Australia/Perth"
+days <- paste0("2018-12-0", 3:7)
 accent <- "#dd0c15"
 pal <- "Set1"
 kcore <- 2

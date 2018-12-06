@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Rick Tankard, modified from script by Luke Zappia" />
+
+
+<title>Twitter coverage of the Bioinfosummer 2018 summer school</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">lazappi's Twitter stats</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Hashtags
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="ABACBS18.html">ABACBS18</a>
+    </li>
+    <li>
+      <a href="COMBINE18.html">COMBINE18</a>
+    </li>
+    <li>
+      <a href="ASHG18.html">ASHG18</a>
+    </li>
+    <li>
+      <a href="gi2018.html">GI2018</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="https://github.com/lazappi/twitter-stats">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Twitter coverage of the Bioinfosummer 2018 summer school</h1>
+<h4 class="author"><em>Rick Tankard, modified from script by Luke Zappia</em></h4>
+<h4 class="date"><em>2018-12-06 08:52:44</em></h4>
+
+</div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Parameter</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Hashtag</td>
+<td align="left">#bioinfosummer</td>
+</tr>
+<tr class="even">
+<td align="left">Conference</td>
+<td align="left">Bioinfosummer 2018</td>
+</tr>
+<tr class="odd">
+<td align="left">Time Zone</td>
+<td align="left">Australia/Perth</td>
+</tr>
+<tr class="even">
+<td align="left">Days</td>
+<td align="left">c(“2018-12-03”, “2018-12-04”, “2018-12-05”, “2018-12-06”, “2018-12-07”)</td>
+</tr>
+<tr class="odd">
+<td align="left">Accent colour</td>
+<td align="left">#dd0c15</td>
+</tr>
+<tr class="even">
+<td align="left">Pallete</td>
+<td align="left">Set1</td>
+</tr>
+<tr class="odd">
+<td align="left">k-core</td>
+<td align="left">2</td>
+</tr>
+<tr class="even">
+<td align="left">Topics k</td>
+<td align="left">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Bigram filter</td>
+<td align="left">3</td>
+</tr>
+<tr class="even">
+<td align="left">Fixed</td>
+<td align="left">TRUE</td>
+</tr>
+</tbody>
+</table>
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>An analysis of tweets from the Bioinfosummer 2018 conference. A total of 593 tweets from 120 users were collected using the <code>rtweet</code> R package.</p>
+</div>
+<div id="timeline" class="section level1">
+<h1><span class="header-section-number">2</span> Timeline</h1>
+<div id="tweets-by-day" class="section level2">
+<h2><span class="header-section-number">2.1</span> Tweets by day</h2>
+<p><img src="figures/Bioinfosummer2018/tweets-by-day-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets-by-day-and-time" class="section level2">
+<h2><span class="header-section-number">2.2</span> Tweets by day and time</h2>
+<p>Filtered for dates 2018-12-03 - 2018-12-07 in the Australia/Perth timezone.</p>
+<p><img src="figures/Bioinfosummer2018/tweets-by-day-hour-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="users" class="section level1">
+<h1><span class="header-section-number">3</span> Users</h1>
+<div id="top-tweeters" class="section level2">
+<h2><span class="header-section-number">3.1</span> Top tweeters</h2>
+<p><img src="figures/Bioinfosummer2018/tweets-top-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-original-tweeters" class="section level2">
+<h2><span class="header-section-number">3.2</span> Top original tweeters</h2>
+<p><img src="figures/Bioinfosummer2018/tweets-top-users-orig-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="retweet-proportion" class="section level2">
+<h2><span class="header-section-number">3.3</span> Retweet proportion</h2>
+<p><img src="figures/Bioinfosummer2018/tweets-retweet-prop-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-by-time" class="section level2">
+<h2><span class="header-section-number">3.4</span> Top tweeters by time</h2>
+<p><img src="figures/Bioinfosummer2018/tweets-top-users-time-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-by-day" class="section level2">
+<h2><span class="header-section-number">3.5</span> Top tweeters by day</h2>
+<div id="all-tweets" class="section level3 tabset">
+<h3><span class="header-section-number">3.5.1</span> All tweets</h3>
+<div id="day-1" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/Bioinfosummer2018/tweets-top-users-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2" class="section level4 unnumbered">
+<h4>Day 2</h4>
+<p><img src="figures/Bioinfosummer2018/tweets-top-users-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3" class="section level4 unnumbered">
+<h4>Day 3</h4>
+<p><img src="figures/Bioinfosummer2018/tweets-top-users-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-4" class="section level4 unnumbered">
+<h4>Day 4</h4>
+<p><img src="figures/Bioinfosummer2018/tweets-top-users-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-5" class="section level4 unnumbered">
+<h4>Day 5</h4>
+<p><img src="figures/Bioinfosummer2018/tweets-top-users-day5-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="original-tweets" class="section level3 tabset">
+<h3><span class="header-section-number">3.5.2</span> Original tweets</h3>
+<div id="day-1-1" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/Bioinfosummer2018/tweets-top-users-orig-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-1" class="section level4 unnumbered">
+<h4>Day 2</h4>
+<p><img src="figures/Bioinfosummer2018/tweets-top-users-orig-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-1" class="section level4 unnumbered">
+<h4>Day 3</h4>
+<p><img src="figures/Bioinfosummer2018/tweets-top-users-orig-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-4-1" class="section level4 unnumbered">
+<h4>Day 4</h4>
+<p><img src="figures/Bioinfosummer2018/tweets-top-users-orig-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-5-1" class="section level4 unnumbered">
+<h4>Day 5</h4>
+<p><img src="figures/Bioinfosummer2018/tweets-top-users-orig-day5-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="sources" class="section level2">
+<h2><span class="header-section-number">3.6</span> Sources</h2>
+<p><img src="figures/Bioinfosummer2018/tweets-top-sources-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="networks" class="section level1">
+<h1><span class="header-section-number">4</span> Networks</h1>
+<div id="replies" class="section level2">
+<h2><span class="header-section-number">4.1</span> Replies</h2>
+<p>The “replies network”, composed from users who reply directly to one another, coloured by page rank.</p>
+<p><img src="figures/Bioinfosummer2018/reply-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mentions" class="section level2">
+<h2><span class="header-section-number">4.2</span> Mentions</h2>
+<p>The “mentions network”, where users mention other users in their tweets. Filtered for a k-core of 2. Node colour and size adjusted according to PageRank score.</p>
+<p><img src="figures/Bioinfosummer2018/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweets" class="section level1">
+<h1><span class="header-section-number">5</span> Retweets</h1>
+<div id="retweet-proportion-1" class="section level2">
+<h2><span class="header-section-number">5.1</span> Retweet proportion</h2>
+<p><img src="figures/Bioinfosummer2018/is-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="retweet-count" class="section level2">
+<h2><span class="header-section-number">5.2</span> Retweet count</h2>
+<p><img src="figures/Bioinfosummer2018/retweet-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-retweets" class="section level2">
+<h2><span class="header-section-number">5.3</span> Top retweets</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+retweet_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+Slides from my talk at #Bioinfosummer are now available online: <a href="https://t.co/kJqaAK6eNU" class="uri">https://t.co/kJqaAK6eNU</a> Keep an eye out for Thursday’s scMerge workshop materials! Really appreciate the invitation from organisers of <span class="citation">@Bioinfosummer</span> so glad to be involved 😊😊
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rladiesperth
+</td>
+<td style="text-align:left;">
+<p>Want to continue your journey with R after #BioInfoSummer 2018?</p>
+<p>An #RLadies chapter is launching in Perth on Mon 10th Dec <span class="citation">@PerkinsComms</span> from 4:30pm.</p>
+<p>To celebrate we are hosting talks by local R-ladies and networking 🧀🥂</p>
+Register (RSVP Thurs 7th Dec): <a href="https://t.co/Vcl4mwwVm2" class="uri">https://t.co/Vcl4mwwVm2</a> <a href="https://t.co/Cnnh4hymRc" class="uri">https://t.co/Cnnh4hymRc</a>
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+stephaniehicks
+</td>
+<td style="text-align:left;">
+#BioInfoSummer workshop material on analysis of #scRNAseq data is at <a href="https://t.co/QzWaGbiGyF" class="uri">https://t.co/QzWaGbiGyF</a> (kindly borrowed w/ permission from wonderful #scRNAseq course <span class="citation">@m_hemberg</span> <span class="citation">@wikiselev</span> <span class="citation">@talandrews</span> <span class="citation">@Jenni_Westoby</span> <span class="citation">@davisjmcc</span> <span class="citation">@marenbuettner</span> here <a href="https://t.co/b6VVpt5eX3" class="uri">https://t.co/b6VVpt5eX3</a>, shortened for time)
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shaniAmare
+</td>
+<td style="text-align:left;">
+This gets more interesting… and is making me hungry… Under the topic of #phylogenomics <span class="citation">@torstenseemann</span> @ #BioInfoSummer <a href="https://t.co/vpYcVTaXRe" class="uri">https://t.co/vpYcVTaXRe</a>
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+#Bioinfosummer <span class="citation">@JasonWilliamsNY</span> gives a reality check. Learning doesn’t happen <em>AT</em> the workshop, it happens <em>AFTER</em> the workshop. That’s why ensuring resources are available continuously as well as people + networks (e.g. #rladies <span class="citation">@RLadiesSydney</span> <span class="citation">@combine_au</span> <span class="citation">@abacbs</span> )
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PhilippBayer
+</td>
+<td style="text-align:left;">
+.<span class="citation">@Al__Forrest</span> is recruiting postdocs to work on single cell analysis of tumors so contact him! #BioInfoSummer <a href="https://t.co/tXzvLbbhPT" class="uri">https://t.co/tXzvLbbhPT</a>
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PhilippBayer
+</td>
+<td style="text-align:left;">
+Students have more to learn than their teachers had to! #BioInfoSummer <a href="https://t.co/ELpHvOYdp3" class="uri">https://t.co/ELpHvOYdp3</a>
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+#Bioinfosummer <span class="citation">@Luyi_T</span> presented a great Fast Forward on benchmarking for scRNA-Seq data! <a href="https://t.co/zEsqIMjsWP" class="uri">https://t.co/zEsqIMjsWP</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bioinfosummer
+</td>
+<td style="text-align:left;">
+Come prepared! Check the details for each <span class="citation">@DiscoverAMSI</span> #BioInfoSummer workshop to see if you need to bring a laptop with you and/or pre-download software. <a href="https://t.co/4ra7rh60pb" class="uri">https://t.co/4ra7rh60pb</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dilys_lam
+</td>
+<td style="text-align:left;">
+.<span class="citation">@laura_boykin</span> on portable sequencing to diagnose unhealthy Cassava for farmers in East Africa - delivering results to farmers in real time (Tree Lab). 800 million people in the world are dependent on Cassava for daily calories -very inspiring story!! #BioInfoSummer <a href="https://t.co/a0FY8P2NNL" class="uri">https://t.co/a0FY8P2NNL</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="favourites" class="section level1">
+<h1><span class="header-section-number">6</span> Favourites</h1>
+<div id="favourite-proportion" class="section level2">
+<h2><span class="header-section-number">6.1</span> Favourite proportion</h2>
+<p><img src="figures/Bioinfosummer2018/has-favorite-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="favourite-count" class="section level2">
+<h2><span class="header-section-number">6.2</span> Favourite count</h2>
+<p><img src="figures/Bioinfosummer2018/favorite-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-favourites" class="section level2">
+<h2><span class="header-section-number">6.3</span> Top favourites</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+torstenseemann
+</td>
+<td style="text-align:left;">
+Now preparing for my #Bioinfosummer introductory workshop to genome assembly and annotation. Don’t forget to bring your meat computer 🧠 and a writing instrument 🖊️. <a href="https://t.co/Scp3MTnw7b" class="uri">https://t.co/Scp3MTnw7b</a>
+</td>
+<td style="text-align:right;">
+54
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+Treated to a stunning peacock display at <span class="citation">@uwanews</span> ahead of today’s single cell session at #bioinfosummer 😍 <span class="citation">@Bioinfosummer</span> <a href="https://t.co/N2OB4zDfjh" class="uri">https://t.co/N2OB4zDfjh</a>
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+Slides from my talk at #Bioinfosummer are now available online: <a href="https://t.co/kJqaAK6eNU" class="uri">https://t.co/kJqaAK6eNU</a> Keep an eye out for Thursday’s scMerge workshop materials! Really appreciate the invitation from organisers of <span class="citation">@Bioinfosummer</span> so glad to be involved 😊😊
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+In beautiful Perth ahead of #BioInfoSummer this week 😊✌ <a href="https://t.co/hIYpCqY6mx" class="uri">https://t.co/hIYpCqY6mx</a>
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+torstenseemann
+</td>
+<td style="text-align:left;">
+Grateful to be greeted in Perth for #BioInfoSummer by <span class="citation">@PhilippBayer</span>, <span class="citation">@JasonWilliamsNY</span>, Dave Edwards with food, beer and upgraded toiletries! <a href="https://t.co/xMSUasBMf0" class="uri">https://t.co/xMSUasBMf0</a>
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+stephaniehicks
+</td>
+<td style="text-align:left;">
+#BioInfoSummer workshop material on analysis of #scRNAseq data is at <a href="https://t.co/QzWaGbiGyF" class="uri">https://t.co/QzWaGbiGyF</a> (kindly borrowed w/ permission from wonderful #scRNAseq course <span class="citation">@m_hemberg</span> <span class="citation">@wikiselev</span> <span class="citation">@talandrews</span> <span class="citation">@Jenni_Westoby</span> <span class="citation">@davisjmcc</span> <span class="citation">@marenbuettner</span> here <a href="https://t.co/b6VVpt5eX3" class="uri">https://t.co/b6VVpt5eX3</a>, shortened for time)
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PhilippBayer
+</td>
+<td style="text-align:left;">
+Students have more to learn than their teachers had to! #BioInfoSummer <a href="https://t.co/ELpHvOYdp3" class="uri">https://t.co/ELpHvOYdp3</a>
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shaniAmare
+</td>
+<td style="text-align:left;">
+This gets more interesting… and is making me hungry… Under the topic of #phylogenomics <span class="citation">@torstenseemann</span> @ #BioInfoSummer <a href="https://t.co/vpYcVTaXRe" class="uri">https://t.co/vpYcVTaXRe</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+markagray
+</td>
+<td style="text-align:left;">
+The #Bioinfosummer students are pretty sharp! We finished the Nimbus training early and now <span class="citation">@MarcoDeLa83</span> is taking about Docker containers for easy research containers. <a href="https://t.co/mQth6DS7tF" class="uri">https://t.co/mQth6DS7tF</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+stephaniehicks
+</td>
+<td style="text-align:left;">
+.<span class="citation">@trashystats</span> talking about her path into bioinformatics over lunch #BioInfoSummer <a href="https://t.co/47obRGcg9o" class="uri">https://t.co/47obRGcg9o</a>
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="quotes" class="section level1">
+<h1><span class="header-section-number">7</span> Quotes</h1>
+<div id="quote-proportion" class="section level2">
+<h2><span class="header-section-number">7.1</span> Quote proportion</h2>
+<p><img src="figures/Bioinfosummer2018/is-quote-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="quote-count" class="section level2">
+<h2><span class="header-section-number">7.2</span> Quote count</h2>
+<p><img src="figures/Bioinfosummer2018/quotes-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-quotes" class="section level2">
+<h2><span class="header-section-number">7.3</span> Top quotes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+quote_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+It’s a pleasure to highlight and present work by our fantastic <span class="citation">@sydneybioinfo</span> group at #Bioinfosummer <span class="citation">@LinYingxin</span> <span class="citation">@KevinWang009</span> Taiyun KIm <span class="citation">@TheEllisPatrick</span> <span class="citation">@PengyiYang82</span> <a href="https://t.co/8yianCIBTM" class="uri">https://t.co/8yianCIBTM</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sydneybioinfo
+</td>
+<td style="text-align:left;">
+Excellent thread showing the software and papers/preprints presented by <span class="citation">@shazanfar</span> about Single Cell research at #Bioinfosummer <a href="https://t.co/hBeDM9dOhd" class="uri">https://t.co/hBeDM9dOhd</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="media" class="section level1">
+<h1><span class="header-section-number">8</span> Media</h1>
+<div id="media-count" class="section level2">
+<h2><span class="header-section-number">8.1</span> Media count</h2>
+<p><img src="figures/Bioinfosummer2018/has-media-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-media" class="section level2">
+<h2><span class="header-section-number">8.2</span> Top media</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+torstenseemann
+</td>
+<td style="text-align:left;">
+Now preparing for my #Bioinfosummer introductory workshop to genome assembly and annotation. Don’t forget to bring your meat computer 🧠 and a writing instrument 🖊️. <a href="https://t.co/Scp3MTnw7b" class="uri">https://t.co/Scp3MTnw7b</a>
+</td>
+<td style="text-align:right;">
+54
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+Treated to a stunning peacock display at <span class="citation">@uwanews</span> ahead of today’s single cell session at #bioinfosummer 😍 <span class="citation">@Bioinfosummer</span> <a href="https://t.co/N2OB4zDfjh" class="uri">https://t.co/N2OB4zDfjh</a>
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+In beautiful Perth ahead of #BioInfoSummer this week 😊✌ <a href="https://t.co/hIYpCqY6mx" class="uri">https://t.co/hIYpCqY6mx</a>
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+torstenseemann
+</td>
+<td style="text-align:left;">
+Grateful to be greeted in Perth for #BioInfoSummer by <span class="citation">@PhilippBayer</span>, <span class="citation">@JasonWilliamsNY</span>, Dave Edwards with food, beer and upgraded toiletries! <a href="https://t.co/xMSUasBMf0" class="uri">https://t.co/xMSUasBMf0</a>
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PhilippBayer
+</td>
+<td style="text-align:left;">
+Students have more to learn than their teachers had to! #BioInfoSummer <a href="https://t.co/ELpHvOYdp3" class="uri">https://t.co/ELpHvOYdp3</a>
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shaniAmare
+</td>
+<td style="text-align:left;">
+This gets more interesting… and is making me hungry… Under the topic of #phylogenomics <span class="citation">@torstenseemann</span> @ #BioInfoSummer <a href="https://t.co/vpYcVTaXRe" class="uri">https://t.co/vpYcVTaXRe</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+markagray
+</td>
+<td style="text-align:left;">
+The #Bioinfosummer students are pretty sharp! We finished the Nimbus training early and now <span class="citation">@MarcoDeLa83</span> is taking about Docker containers for easy research containers. <a href="https://t.co/mQth6DS7tF" class="uri">https://t.co/mQth6DS7tF</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+stephaniehicks
+</td>
+<td style="text-align:left;">
+.<span class="citation">@trashystats</span> talking about her path into bioinformatics over lunch #BioInfoSummer <a href="https://t.co/47obRGcg9o" class="uri">https://t.co/47obRGcg9o</a>
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PhilippBayer
+</td>
+<td style="text-align:left;">
+And now it’s <span class="citation">@torstenseemann</span> on how bioinformatics and open data is transforming public health! #Bioinfosummer <a href="https://t.co/DqfilZk6mv" class="uri">https://t.co/DqfilZk6mv</a>
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rladiesperth
+</td>
+<td style="text-align:left;">
+<p>Want to continue your journey with R after #BioInfoSummer 2018?</p>
+<p>An #RLadies chapter is launching in Perth on Mon 10th Dec <span class="citation">@PerkinsComms</span> from 4:30pm.</p>
+<p>To celebrate we are hosting talks by local R-ladies and networking 🧀🥂</p>
+Register (RSVP Thurs 7th Dec): <a href="https://t.co/Vcl4mwwVm2" class="uri">https://t.co/Vcl4mwwVm2</a> <a href="https://t.co/Cnnh4hymRc" class="uri">https://t.co/Cnnh4hymRc</a>
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+</tbody>
+</table>
+<div id="most-liked-media-image" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> Most liked media image</h3>
+<div class="figure">
+<img src="http://pbs.twimg.com/media/Dtn1OUFVsAE9RUN.jpg" />
+
+</div>
+</div>
+</div>
+</div>
+<div id="tweet-text" class="section level1">
+<h1><span class="header-section-number">9</span> Tweet text</h1>
+<div id="word-cloud" class="section level2">
+<h2><span class="header-section-number">9.1</span> Word cloud</h2>
+<p>The top 100 words used 3 or more times.</p>
+<p><img src="figures/Bioinfosummer2018/count-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="bigram-graph" class="section level2">
+<h2><span class="header-section-number">9.2</span> Bigram graph</h2>
+<p>Words that were tweeted next to each other at least 3 times.</p>
+<p><img src="figures/Bioinfosummer2018/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="topic-modelling" class="section level2">
+<h2><span class="header-section-number">9.3</span> Topic modelling</h2>
+<p>Top 10 words associated with 6 topics identified by LDA.</p>
+<p><img src="figures/Bioinfosummer2018/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div id="representative-tweets" class="section level3 tabset">
+<h3><span class="header-section-number">9.3.1</span> Representative tweets</h3>
+<p>Most representative tweets for each topic</p>
+<div id="topic-1" class="section level4 unnumbered">
+<h4>Topic 1</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+#BioInfoSummer <span class="citation">@Al__Forrest</span> describing ways to tackle understanding of cell-cell communication networks, using expression of ligand and receptor genes in single cells and cell types. Is there a high quality database of ligand-receptor gene networks?
+</td>
+<td style="text-align:right;">
+0.9941318
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+#BioInfoSummer <span class="citation">@Al__Forrest</span> describing reframing Q of annotation of cell types. Instead of unsupervised learning (clustering) followed by labelling, start with reference profiles &amp;amp; perform supervised learning (classification) of cells into types. scMatch: <a href="https://t.co/dQB424Fcma" class="uri">https://t.co/dQB424Fcma</a>
+</td>
+<td style="text-align:right;">
+0.9938405
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+ErikaDuan
+</td>
+<td style="text-align:left;">
+Prof Alistair Forrest begins day 2 of #BioInfoSummer introducing the WA cancer scRNAseq consortium. Lots of work and consideration for using reference expression profiles to annotate single cell clusters. <a href="https://t.co/VT2tBw5uo5" class="uri">https://t.co/VT2tBw5uo5</a>
+</td>
+<td style="text-align:right;">
+0.9938405
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+LinYingxin
+</td>
+<td style="text-align:left;">
+Shila <span class="citation">@shazanfar</span> is presenting in #BioInfoSummer about single-cell works in <span class="citation">@sydneybioinfo</span> including 1. Similarity metrics 2. single cell DCARS 3.single cell stably expressed genes (SEGs) 4. scMerge 💃🏻 <a href="https://t.co/saoEs12AJC" class="uri">https://t.co/saoEs12AJC</a>
+</td>
+<td style="text-align:right;">
+0.9927630
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+DiscoverAMSI
+</td>
+<td style="text-align:left;">
+First #BioInfoSummer lecture of the day starting soon! Are you ready to learn about the Western Australian Cancer Single-Cell Initiative with <span class="citation">@Al__Forrest</span>, Head of the <span class="citation">@PerkinsComms</span> Systems Biology and Genomics Lab?
+</td>
+<td style="text-align:right;">
+0.9927630
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+ErikaDuan
+</td>
+<td style="text-align:left;">
+Sad to miss #ASI2018WA but so excited to be attending #BioInfoSummer <span class="citation">@Bioinfosummer</span>. A poor understanding of statistics, especially in biology, is a contributor to poor science reproducibility. <a href="https://t.co/viauNeCM6k" class="uri">https://t.co/viauNeCM6k</a>
+</td>
+<td style="text-align:right;">
+0.9912285
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+<p>Nice FF talk by <span class="citation">@LCrowhurstIMB</span> (working with <span class="citation">@drjosephpowell</span> ) describing scIVA for single cell interactive visualisation and analysis</p>
+<p><a href="https://t.co/UZ8c67lrDe" class="uri">https://t.co/UZ8c67lrDe</a></p>
+<p><a href="https://t.co/yDCXdTDF6j" class="uri">https://t.co/yDCXdTDF6j</a></p>
+#Bioinfosummer
+</td>
+<td style="text-align:right;">
+0.9905615
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+monica_kehoe
+</td>
+<td style="text-align:left;">
+<span class="citation">@Al__Forrest</span> first up this morning for #BioinfoSummer with discussion of single cell genomics and the Western Australian Cancer Single Cell Initiative <span class="citation">@PerkinsComms</span> <span class="citation">@DiscoverAMSI</span> <span class="citation">@Bioinfosummer</span> <a href="https://t.co/1ZZauGBBaE" class="uri">https://t.co/1ZZauGBBaE</a>
+</td>
+<td style="text-align:right;">
+0.9905615
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Vivian_Zh666
+</td>
+<td style="text-align:left;">
+Day2. Too many methods and techniques to learn to catch up with the rapid developing single cell world. Great workshops which I wish I could go both! <span class="citation">@Bioinfosummer</span> #Bioinfosummer <a href="https://t.co/7ttjj8lUgj" class="uri">https://t.co/7ttjj8lUgj</a>
+</td>
+<td style="text-align:right;">
+0.9897845
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+Fast Forward presentations happening at #BioInfoSummer now, with an excellent start by <span class="citation">@ErikaDuan</span> studying immune cells on both RNA and protein front
+</td>
+<td style="text-align:right;">
+0.9897845
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-2" class="section level4 unnumbered">
+<h4>Topic 2</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+Prof Inge Koch hosting the <span class="citation">@DiscoverAMSI</span> CHOOSEMATHS Lunch at #BioInfoSummer programs include encouraging yr 9-10 high school students to take senior high school maths. Aus-wide stats show underrepresentation exists at the high school level and poor attitudes even earlier (yr 5) <a href="https://t.co/P59CP6y6wL" class="uri">https://t.co/P59CP6y6wL</a>
+</td>
+<td style="text-align:right;">
+0.9954287
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+dilys_lam
+</td>
+<td style="text-align:left;">
+.<span class="citation">@laura_boykin</span> on portable sequencing to diagnose unhealthy Cassava for farmers in East Africa - delivering results to farmers in real time (Tree Lab). 800 million people in the world are dependent on Cassava for daily calories -very inspiring story!! #BioInfoSummer <a href="https://t.co/a0FY8P2NNL" class="uri">https://t.co/a0FY8P2NNL</a>
+</td>
+<td style="text-align:right;">
+0.9950651
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+ErikaDuan
+</td>
+<td style="text-align:left;">
+Prof Rebecca Johnson from the Australian Museum gives a fascinating talk about an accidental career in wildlife forensics. Wildlife crime has a huge cost across the world and smuggling has especially detrimental impact on island nations (pests introduction etc). #BioInfoSummer <a href="https://t.co/B0J8kA1WYq" class="uri">https://t.co/B0J8kA1WYq</a>
+</td>
+<td style="text-align:right;">
+0.9948608
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+dilys_lam
+</td>
+<td style="text-align:left;">
+<span class="citation">@stephaniehicks</span> introducing Bioconductor Workflows, which provide workflows on analysing different types of data, including scRNA-seq (over 58 packages exist!). There are also ExperimentData packages with data you can play/learn with - super useful!! #BioInfoSummer
+</td>
+<td style="text-align:right;">
+0.9935189
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+ErikaDuan
+</td>
+<td style="text-align:left;">
+Next, As. Prof Stephanie Hicks takes us through the scRNAseq workflow via Bioconductor. Currently over 58 packages available for scRNAseq analysis. ScRNAseq analysis has additional noise parameters that need to be considered. #BioInfoSummer <a href="https://t.co/RJAONRqUPF" class="uri">https://t.co/RJAONRqUPF</a>
+</td>
+<td style="text-align:right;">
+0.9927630
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+monica_kehoe
+</td>
+<td style="text-align:left;">
+<span class="citation">@laura_boykin</span> fresh off the plane from East Africa sharing her experiences from #poresafari and #treelab with everyone <span class="citation">@Bioinfosummer</span> <span class="citation">@DiscoverAMSI</span> #BioInfoSummer <span class="citation">@nanopore</span> <span class="citation">@ScienceUWA</span> watch this space for exciting things to come and see <a href="https://t.co/9tusvgC2oP" class="uri">https://t.co/9tusvgC2oP</a> for more info <a href="https://t.co/4r1bidM1F6" class="uri">https://t.co/4r1bidM1F6</a>
+</td>
+<td style="text-align:right;">
+0.9923149
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+ErikaDuan
+</td>
+<td style="text-align:left;">
+Prof Dave Edwards has a great analogy for genome sequencing challenges. How good the alignment is, whether SNPs can be linked to phenotypes and building pangenomes are important for plant genomics. #BioinfoSummer <a href="https://t.co/L0KepDj6v0" class="uri">https://t.co/L0KepDj6v0</a>
+</td>
+<td style="text-align:right;">
+0.9923149
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+dilys_lam
+</td>
+<td style="text-align:left;">
+Dave Edwards closing day 1 - plant genomics and bioinformatic applications - the length of the wheat genome is about 4 times around the world! #BioInfoSummer <a href="https://t.co/ltHpQjDtGY" class="uri">https://t.co/ltHpQjDtGY</a>
+</td>
+<td style="text-align:right;">
+0.9912285
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+RickTankard
+</td>
+<td style="text-align:left;">
+Environmental/wildlife crime worth $100-200 billion a year worldwide. In talk by Dr Rebecca Johnson from Australian Museum #bioinfosummer <a href="https://t.co/fUiLqlLgPu" class="uri">https://t.co/fUiLqlLgPu</a>
+</td>
+<td style="text-align:right;">
+0.9905615
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+shaniAmare
+</td>
+<td style="text-align:left;">
+<span class="citation">@nanopore</span> helping to solve real-world problems in Africa with the #cassavavirusactionproject described by Dr. Laura Boykin #BioInfoSummer <a href="https://t.co/YOFBuWN15q" class="uri">https://t.co/YOFBuWN15q</a>
+</td>
+<td style="text-align:right;">
+0.9888683
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-3" class="section level4 unnumbered">
+<h4>Topic 3</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+dilys_lam
+</td>
+<td style="text-align:left;">
+.<span class="citation">@ZhipingWeng</span> starting off day 3 on the sequencing, assembly and annotation of the Hi5 cell line from Trichoplusia ni (the cabbage looper!), which is a great in vitro system to study small RNAs such as piRNAs. piggyBac transposons were originally found in Hi5! #BioInfoSummer <a href="https://t.co/vKKgpOWB2F" class="uri">https://t.co/vKKgpOWB2F</a>
+</td>
+<td style="text-align:right;">
+0.9948608
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+JasonWilliamsNY
+</td>
+<td style="text-align:left;">
+Super excited to listen to <span class="citation">@DrRebeccaJ</span> - the first woman director of research in the <span class="citation">@austmus</span> ‘s 191 year history. She is a true Superstar and a Superstar woman in STEM. Tonight she is sharing her science and her inspiring journey. #BioInfoSummer - look her up, follow her! <a href="https://t.co/kqG2NTeJY8" class="uri">https://t.co/kqG2NTeJY8</a>
+</td>
+<td style="text-align:right;">
+0.9938405
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Bioinfosummer
+</td>
+<td style="text-align:left;">
+FREE <span class="citation">@DiscoverAMSI</span> #BioInfoSummer 2018 public lecture by <span class="citation">@austmus</span> Director Rebecca Johnson. Accessible to year 12 students and above. Register at <a href="https://t.co/AqIrCqioVT" class="uri">https://t.co/AqIrCqioVT</a> <span class="citation">@MAWAinc</span> <span class="citation">@ScitechWA</span> <span class="citation">@ScienceUWA</span> <span class="citation">@UWAresearch</span> <span class="citation">@ECU</span> <span class="citation">@MurdochUni</span> <span class="citation">@CurtinUni</span> <span class="citation">@DrRebeccaJ</span> <a href="https://t.co/H3t1UGe6hv" class="uri">https://t.co/H3t1UGe6hv</a>
+</td>
+<td style="text-align:right;">
+0.9935189
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+dilys_lam
+</td>
+<td style="text-align:left;">
+.<span class="citation">@torstenseemann</span> (ft. simpsons) on using WGS and bioinformatics in transforming public health and clinical microbiology - using both de novo assembly and aligning to references - also pangenomes (core + accessory DNA) #BioInfoSummer <a href="https://t.co/mf4r9aJwtv" class="uri">https://t.co/mf4r9aJwtv</a>
+</td>
+<td style="text-align:right;">
+0.9935189
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+stephaniehicks
+</td>
+<td style="text-align:left;">
+#BioInfoSummer workshop material on analysis of #scRNAseq data is at <a href="https://t.co/QzWaGbiGyF" class="uri">https://t.co/QzWaGbiGyF</a> (kindly borrowed w/ permission from wonderful #scRNAseq course <span class="citation">@m_hemberg</span> <span class="citation">@wikiselev</span> <span class="citation">@talandrews</span> <span class="citation">@Jenni_Westoby</span> <span class="citation">@davisjmcc</span> <span class="citation">@marenbuettner</span> here <a href="https://t.co/b6VVpt5eX3" class="uri">https://t.co/b6VVpt5eX3</a>, shortened for time)
+</td>
+<td style="text-align:right;">
+0.9931618
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+monica_kehoe
+</td>
+<td style="text-align:left;">
+<span class="citation">@JasonWilliamsNY</span> improving the bioinformatics curriculum,including prac projects in undergraduate courses would be ideal- I couldn’t agree more, my third year practical project in my degree shaped my path in science for sure! <span class="citation">@Bioinfosummer</span> <span class="citation">@DiscoverAMSI</span> #Bioinfosummer <a href="https://t.co/IQToPJBPri" class="uri">https://t.co/IQToPJBPri</a>
+</td>
+<td style="text-align:right;">
+0.9931618
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+monica_kehoe
+</td>
+<td style="text-align:left;">
+I always enjoy talks by <span class="citation">@torstenseemann</span> - doesn’t disappoint today, great discussion about bacteria, wgs, genomics and bioinformatics for public health. I can only hope the plant pathogens can follow suit ASAP! #BioInfoSummer <span class="citation">@Bioinfosummer</span> <span class="citation">@DiscoverAMSI</span> <a href="https://t.co/DQE06UFroi" class="uri">https://t.co/DQE06UFroi</a>
+</td>
+<td style="text-align:right;">
+0.9931618
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+stephaniehicks
+</td>
+<td style="text-align:left;">
+Lovely walk by the water 🏖 &amp;amp; now ready for #BioInfoSummer Day 2 on #singlecell #omics 👩🏾‍💻👨🏻‍💻👩‍💻👨🏼‍💻👨🏿‍💻👩🏻‍💻to kickoff <span class="citation">@uwanews</span> (even the peacocks 🦚 seem to be ready!) #Bioinformatics #scRNAseq #statistics #mathematics #STEM <a href="https://t.co/aRBcNptw3d" class="uri">https://t.co/aRBcNptw3d</a>
+</td>
+<td style="text-align:right;">
+0.9927630
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+CraigDuncanAU
+</td>
+<td style="text-align:left;">
+Another <span class="citation">@Bioinfosummer</span> highlight: <span class="citation">@torstenseemann</span> explaining computer science, public health and de novo genome assembly with some scrambled quotes from #shakespeare and #starwars. #bioinfosummer
+</td>
+<td style="text-align:right;">
+0.9912285
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+ErikaDuan
+</td>
+<td style="text-align:left;">
+As Prof <span class="citation">@torstenseemann</span> uses the most excellent analogies to explain the difficulties of de novo genome assembly at the #BioInfoSummer day 3 afternoon vworkshop. <a href="https://t.co/l9s1I61Yp1" class="uri">https://t.co/l9s1I61Yp1</a>
+</td>
+<td style="text-align:right;">
+0.9905615
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-4" class="section level4 unnumbered">
+<h4>Topic 4</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+JasonWilliamsNY
+</td>
+<td style="text-align:left;">
+Professor Wilson’s slides are so relevant to the #BioInfoSummer audience! If my slides weren’t already written I could have used these! I suspect all the speakers will be converging on these key themes that represent our best approach to sound scientific practice. <a href="https://t.co/woIViKvl69" class="uri">https://t.co/woIViKvl69</a>
+</td>
+<td style="text-align:right;">
+0.9935189
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+Enjoying the morning session of #BioInfoSummer with Sue Wilson presenting the Opening Lecture. Questions touching on keeping track of methods (e.g. software versions) to ensure reproducibility. The person you collaborate with the <em>most</em> is future you 😅
+</td>
+<td style="text-align:right;">
+0.9935189
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+DiscoverAMSI
+</td>
+<td style="text-align:left;">
+We met them this morning at #BioInfoSummer, now let’s join them for parallel workshop sessions: Building a Registry of Candidate cis-Regulatory Elements for Human and Mouse with <span class="citation">@ZhipingWeng</span> and Introduction to Genome Assembly and Annotation with <span class="citation">@torstenseemann</span>. See you at 1:30!
+</td>
+<td style="text-align:right;">
+0.9935189
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+DiscoverAMSI
+</td>
+<td style="text-align:left;">
+Another great day of presentations at AMSI #BioInfoSummer 2018 topped off with an educational afternoon of workshops by two of our international speakers <span class="citation">@JasonWilliamsNY</span> and <span class="citation">@stephaniehicks</span>. Enjoy a sundowner tonight. See you at 9am tomorrow for <span class="citation">@Bioinfosummer</span> Day 3 <a href="https://t.co/BL80a3Skny" class="uri">https://t.co/BL80a3Skny</a>
+</td>
+<td style="text-align:right;">
+0.9923149
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+JasonWilliamsNY
+</td>
+<td style="text-align:left;">
+Great intro to #BioInfoSummer by Peter Klinken, Chief Scientist of Western Australia. “The education sector is the most resistant to change” - will definitely be amplifying these themes in my talk tomorrow! <a href="https://t.co/wQTli8iFwE" class="uri">https://t.co/wQTli8iFwE</a>
+</td>
+<td style="text-align:right;">
+0.9923149
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+shaniAmare
+</td>
+<td style="text-align:left;">
+Conference opening by Peter Klinken AC, Chief Scientist of Western Australia, with the statement “think outside the box… not just as a bioinformatician but a think how your capabilities are applicable in a wide veriety of different areas” #BioInfoSummer 2018 <a href="https://t.co/YBBunOI4Os" class="uri">https://t.co/YBBunOI4Os</a>
+</td>
+<td style="text-align:right;">
+0.9923149
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+JasonWilliamsNY
+</td>
+<td style="text-align:left;">
+In the #BioInfoSummer opening lecture by Professor Susan Wilson, University of NSW puts a fine point of the difference between reproducibility and replicability - we want to be able to replicate findings and often a better understanding of statistics is what’s needed! <a href="https://t.co/yt3AbIpSVZ" class="uri">https://t.co/yt3AbIpSVZ</a>
+</td>
+<td style="text-align:right;">
+0.9923149
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+DiscoverAMSI
+</td>
+<td style="text-align:left;">
+Welcome to Wednesday at #BioInfoSummer in sunny Perth! First up for today is Professor <span class="citation">@ZhipingWeng</span> from <span class="citation">@UMassMedical</span> on the genome of cabbage looper Hi5 germ cells <a href="https://t.co/qQEwoi7kXq" class="uri">https://t.co/qQEwoi7kXq</a>
+</td>
+<td style="text-align:right;">
+0.9905615
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+ErikaDuan
+</td>
+<td style="text-align:left;">
+I’m picking up on new databases to try for genes/genomic features at Marina Sanchez’s talk on wild vs domestic sheep genomes. #BioInfoSummer <a href="https://t.co/qGYzCdDrOz" class="uri">https://t.co/qGYzCdDrOz</a>
+</td>
+<td style="text-align:right;">
+0.9905615
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+JasonWilliamsNY
+</td>
+<td style="text-align:left;">
+The Nature Genetics cover of the Koala Genome was commissioned to an Aboriginal artist. “It’s not an accident it looks like a target” #BioInfoSummer <a href="https://t.co/orSewaTpvg" class="uri">https://t.co/orSewaTpvg</a>
+</td>
+<td style="text-align:right;">
+0.9897845
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-5" class="section level4 unnumbered">
+<h4>Topic 5</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+DiscoverAMSI
+</td>
+<td style="text-align:left;">
+Meet AMSI #BioInfoSummer 2018 speaker Marina Naval Sanchez from <span class="citation">@CSIROnews</span>! Join Marina to learn about molecular processes driving the evolutionary changes produced by sheep domestication and artificial selection <a href="https://t.co/I0SwiH4Rlz" class="uri">https://t.co/I0SwiH4Rlz</a> <span class="citation">@UWAresearch</span> <span class="citation">@VetLifeScience</span> <span class="citation">@ECUresearch</span> <a href="https://t.co/ZH3S4sXRzd" class="uri">https://t.co/ZH3S4sXRzd</a>
+</td>
+<td style="text-align:right;">
+0.9948608
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+dilys_lam
+</td>
+<td style="text-align:left;">
+<span class="citation">@shazanfar</span> introducing scMerge, which allows integration of multiple datasets - scMerge battles strong batch effects between datasets by estimating unwanted variation using negative controls and replicates. Featuring a surprise appearance by Drake #BioInfoSummer <a href="https://t.co/iRVQnnZnr9" class="uri">https://t.co/iRVQnnZnr9</a>
+</td>
+<td style="text-align:right;">
+0.9943967
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+shaniAmare
+</td>
+<td style="text-align:left;">
+The UK’s got the black 🐑… 🤭😅 Dr. Marina Naval Sanchez from #CSIRO explains how functional annotation reveals proximal regulatory elements contributed to the evolution of modern sheep breeds #BioInfoSummer <a href="https://t.co/Jl45XDkdaq" class="uri">https://t.co/Jl45XDkdaq</a>
+</td>
+<td style="text-align:right;">
+0.9938405
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+rladiesperth
+</td>
+<td style="text-align:left;">
+<p>Don’t forget to register for our #RLadies Perth launch event. Registrations close tomorrow night. We are looking forward to meeting you all! 🎉🎉</p>
+#BioInfoSummer <span class="citation">@ECUresearch</span> <span class="citation">@MurdochUni</span> <span class="citation">@CurtinIC</span> <span class="citation">@CurtinUni</span> <span class="citation">@UWAresearch</span> <span class="citation">@BiolSci_UWA</span> <span class="citation">@telethonkids</span> <span class="citation">@PerkinsComms</span> <a href="https://t.co/aGh41pqjQ4" class="uri">https://t.co/aGh41pqjQ4</a>
+</td>
+<td style="text-align:right;">
+0.9938405
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+DiscoverAMSI
+</td>
+<td style="text-align:left;">
+In the mood for a catered lunch? If you’re a #BioInfoSummer attendee, join us on the Arts Building Lawns now! Female attendees can also head to the Arts Building Seminar Room for a #CHOOSEMATHS lunch event <span class="citation">@UWAresearch</span>
+</td>
+<td style="text-align:right;">
+0.9931618
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+#BioInfoSummer <span class="citation">@stephaniehicks</span> excellent framing of the issues of batch effects in scRNA-Seq data, I’m so glad the audience is primed to hear about more scRNA-Seq and scMerge after morning tea! <a href="https://t.co/ykSvb5w4UR" class="uri">https://t.co/ykSvb5w4UR</a>
+</td>
+<td style="text-align:right;">
+0.9931618
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+DiscoverAMSI
+</td>
+<td style="text-align:left;">
+Have you registered yet for the free AMSI #BioInfoSummer 2018 Public Lecture? Wed 5 Dec at 6pm <span class="citation">@UWABusSchool</span>! <a href="https://t.co/pJuzWAO2YU" class="uri">https://t.co/pJuzWAO2YU</a> <span class="citation">@Bioinfosummer</span> <span class="citation">@ausbionet</span> <span class="citation">@VetLifeScience</span> <span class="citation">@UWAresearch</span> <span class="citation">@CurtinUni</span> <span class="citation">@ECUresearch</span> <span class="citation">@auscicomm</span> <a href="https://t.co/EmJxCHunJt" class="uri">https://t.co/EmJxCHunJt</a>
+</td>
+<td style="text-align:right;">
+0.9927630
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+stephaniehicks
+</td>
+<td style="text-align:left;">
+Attending #BioInfoSummer in Perth, Australia this week! Already fell in love with the beautiful weather, beaches, and ping pong tables on the <span class="citation">@uwanews</span> campus 😻 <a href="https://t.co/7saESF2HU9" class="uri">https://t.co/7saESF2HU9</a>
+</td>
+<td style="text-align:right;">
+0.9918076
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+As someone who didn’t receive any undergraduate <em>bioinformatics</em> training, I feel it’s so important to think about the need for building bioinformatics into curriculum <span class="citation">@JasonWilliamsNY</span> events like #Bioinfosummer bridge this gap by bringing many resources together
+</td>
+<td style="text-align:right;">
+0.9905615
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+stephaniehicks
+</td>
+<td style="text-align:left;">
+<span class="citation">@RLadiesMelb</span> Oops forgot to mention that 🤦‍♀️ Heading to the University of Melbourne for #BiocAsia <a href="https://t.co/H7scMrkkLH" class="uri">https://t.co/H7scMrkkLH</a> and the Perth next week for #BioInfoSummer <a href="https://t.co/6aVHkJntLX" class="uri">https://t.co/6aVHkJntLX</a>
+</td>
+<td style="text-align:right;">
+0.9897845
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+PhilippBayer
+</td>
+<td style="text-align:left;">
+Dr. Marina Naval-Sanchez on using WGS to learn more about sheep domestication - 69 individuals, 28 million SNPs #BioInfoSummer <a href="https://t.co/3ciLQ3euFl" class="uri">https://t.co/3ciLQ3euFl</a>
+</td>
+<td style="text-align:right;">
+0.9897845
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+monica_kehoe
+</td>
+<td style="text-align:left;">
+<span class="citation">@JamesKHane</span> sharing some plant pathology applications of genomics and bioinformatics including mention of <span class="citation">@darcyabjones</span> work on “stago” <span class="citation">@theCCDM</span> <span class="citation">@DiscoverAMSI</span> <span class="citation">@Bioinfosummer</span> #BioInfoSummer <a href="https://t.co/OlPylXBYHx" class="uri">https://t.co/OlPylXBYHx</a>
+</td>
+<td style="text-align:right;">
+0.9897845
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-6" class="section level4 unnumbered">
+<h4>Topic 6</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+rladiesperth
+</td>
+<td style="text-align:left;">
+<p>Want to continue your journey with R after #BioInfoSummer 2018?</p>
+<p>An #RLadies chapter is launching in Perth on Mon 10th Dec <span class="citation">@PerkinsComms</span> from 4:30pm.</p>
+<p>To celebrate we are hosting talks by local R-ladies and networking 🧀🥂</p>
+Register (RSVP Thurs 7th Dec): <a href="https://t.co/Vcl4mwwVm2" class="uri">https://t.co/Vcl4mwwVm2</a> <a href="https://t.co/Cnnh4hymRc" class="uri">https://t.co/Cnnh4hymRc</a>
+</td>
+<td style="text-align:right;">
+0.9948608
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+Prof Dave Edwards giving an excellent talk on building pan genomes in crop plants. A number of morphotypically different plants have very similar/same genomes! Diverse genes tend to be bacterial defence-related #BioInfoSummer <a href="https://t.co/YBThd6fzXl" class="uri">https://t.co/YBThd6fzXl</a>
+</td>
+<td style="text-align:right;">
+0.9943967
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+stephaniehicks
+</td>
+<td style="text-align:left;">
+.<span class="citation">@JasonWilliamsNY</span> one of the biggest barriers is lack of faculty expertise / training and lack of student background skills / knowledge. Pretty consistent across the type of insitution too #BioInfoSummer <a href="https://t.co/LlZ0rYRUlV" class="uri">https://t.co/LlZ0rYRUlV</a>
+</td>
+<td style="text-align:right;">
+0.9923149
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+#Bioinfosummer <span class="citation">@JasonWilliamsNY</span> gives a reality check. Learning doesn’t happen <em>AT</em> the workshop, it happens <em>AFTER</em> the workshop. That’s why ensuring resources are available continuously as well as people + networks (e.g. #rladies <span class="citation">@RLadiesSydney</span> <span class="citation">@combine_au</span> <span class="citation">@abacbs</span> )
+</td>
+<td style="text-align:right;">
+0.9918076
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+stephaniehicks
+</td>
+<td style="text-align:left;">
+Beyond excited to hear <span class="citation">@DrRebeccaJ</span>, the first female director of <span class="citation">@austmus</span> in 191 years, talk about being a wildlife detective investigating wildlife crime &amp;amp; forensics #BioInfoSummer #WomenInSTEM <a href="https://t.co/r8ZDd6okVW" class="uri">https://t.co/r8ZDd6okVW</a>
+</td>
+<td style="text-align:right;">
+0.9912285
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+JasonWilliamsNY
+</td>
+<td style="text-align:left;">
+Wildlife crime is a multi-billion dollar problem each year… additionally it is usually cross-country. Thus the need for high-quality forensics. It’s often associated with organized crime. #Bioinfosummer <a href="https://t.co/yoVvH8UyUB" class="uri">https://t.co/yoVvH8UyUB</a>
+</td>
+<td style="text-align:right;">
+0.9912285
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+markagray
+</td>
+<td style="text-align:left;">
+The #Bioinfosummer students are pretty sharp! We finished the Nimbus training early and now <span class="citation">@MarcoDeLa83</span> is taking about Docker containers for easy research containers. <a href="https://t.co/mQth6DS7tF" class="uri">https://t.co/mQth6DS7tF</a>
+</td>
+<td style="text-align:right;">
+0.9905615
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+Slides from my talk at #Bioinfosummer are now available online: <a href="https://t.co/kJqaAK6eNU" class="uri">https://t.co/kJqaAK6eNU</a> Keep an eye out for Thursday’s scMerge workshop materials! Really appreciate the invitation from organisers of <span class="citation">@Bioinfosummer</span> so glad to be involved 😊😊
+</td>
+<td style="text-align:right;">
+0.9905615
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+<p>Workshop materials for Thursday’s scMerge session are now online, see you tomorrow!</p>
+<p>Tutorial: <a href="https://t.co/OYfadMEWH4" class="uri">https://t.co/OYfadMEWH4</a></p>
+<p>Post with links: <a href="https://t.co/kJqaAK6eNU" class="uri">https://t.co/kJqaAK6eNU</a></p>
+#bioinfosummer <a href="https://t.co/YK2k58RJFS" class="uri">https://t.co/YK2k58RJFS</a>
+</td>
+<td style="text-align:right;">
+0.9905615
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+shaniAmare
+</td>
+<td style="text-align:left;">
+<span class="citation">@JasonWilliamsNY</span> explains that the lack of BETTER training to be the biggest obstacle in being an expert in bioinformatics.. how to solve it? Probably start with making resources more available… #BioInfoSummer <a href="https://t.co/K49U2IuuCb" class="uri">https://t.co/K49U2IuuCb</a>
+</td>
+<td style="text-align:right;">
+0.9888683
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+monica_kehoe
+</td>
+<td style="text-align:left;">
+<span class="citation">@JasonWilliamsNY</span> leading us in the use of Kallisto and Sleuth for this afternoons workshop. Also a cool way to show you’re good, or need help, red and green post-its <span class="citation">@Bioinfosummer</span> #BioInfoSummer <span class="citation">@DiscoverAMSI</span> <a href="https://t.co/qTirUnTV89" class="uri">https://t.co/qTirUnTV89</a>
+</td>
+<td style="text-align:right;">
+0.9888683
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+Bioinfosummer
+</td>
+<td style="text-align:left;">
+Break time. Show your AMSI #bioinfosummer 2018 lanyard at these local cafes to get great deals. Be back at 1.30pm for the afternoon workshops <a href="https://t.co/uaLHMpRG8y" class="uri">https://t.co/uaLHMpRG8y</a>
+</td>
+<td style="text-align:right;">
+0.9888683
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="software" class="section level1">
+<h1><span class="header-section-number">10</span> Software</h1>
+<p>Software mentioned in Tweets with links to GitHub, BitBucket, Bioconductor or CRAN.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">bio-workshop-18</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/pawseysc/bio-workshop-18" class="uri">https://github.com/pawseysc/bio-workshop-18</a></td>
+</tr>
+<tr class="even">
+<td align="left">bioinfosummer</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/simonvh/bioinfosummer" class="uri">https://github.com/simonvh/bioinfosummer</a></td>
+</tr>
+<tr class="odd">
+<td align="left">scIVA</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/imb-computational-genomics-lab/sciva" class="uri">https://github.com/imb-computational-genomics-lab/sciva</a></td>
+</tr>
+<tr class="even">
+<td align="left">scmatch</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/forrest-lab/scmatch" class="uri">https://github.com/forrest-lab/scmatch</a></td>
+</tr>
+<tr class="odd">
+<td align="left">scMatch</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/asrhou/scmatch" class="uri">https://github.com/asrhou/scmatch</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="session-info" class="section level1 unnumbered">
+<h1>Session info</h1>
+<pre><code>## ─ Session info ──────────────────────────────────────────────────────────
+##  setting  value                       
+##  version  R version 3.5.1 (2018-07-02)
+##  os       macOS High Sierra 10.13.6   
+##  system   x86_64, darwin15.6.0        
+##  ui       X11                         
+##  language (EN)                        
+##  collate  en_AU.UTF-8                 
+##  ctype    en_AU.UTF-8                 
+##  tz       Australia/Perth             
+##  date     2018-12-06                  
+## 
+## ─ Packages ──────────────────────────────────────────────────────────────
+##  package      * version  date       lib source        
+##  assertthat     0.2.0    2017-04-11 [1] CRAN (R 3.5.0)
+##  backports      1.1.2    2017-12-13 [1] CRAN (R 3.5.0)
+##  base64enc      0.1-3    2015-07-28 [1] CRAN (R 3.5.0)
+##  bindr          0.1.1    2018-03-13 [1] CRAN (R 3.5.0)
+##  bindrcpp     * 0.2.2    2018-03-29 [1] CRAN (R 3.5.0)
+##  broom          0.5.0    2018-07-17 [1] CRAN (R 3.5.0)
+##  callr          3.0.0    2018-08-24 [1] CRAN (R 3.5.0)
+##  cli            1.0.1    2018-09-25 [1] CRAN (R 3.5.0)
+##  colorspace     1.3-2    2016-12-14 [1] CRAN (R 3.5.0)
+##  crayon         1.3.4    2017-09-16 [1] CRAN (R 3.5.0)
+##  desc           1.2.0    2018-05-01 [1] CRAN (R 3.5.0)
+##  devtools       2.0.1    2018-10-26 [1] CRAN (R 3.5.1)
+##  digest         0.6.18   2018-10-10 [1] CRAN (R 3.5.0)
+##  dplyr        * 0.7.8    2018-11-10 [1] CRAN (R 3.5.0)
+##  evaluate       0.12     2018-10-09 [1] CRAN (R 3.5.0)
+##  fansi          0.4.0    2018-10-05 [1] CRAN (R 3.5.0)
+##  farver         1.1.0    2018-11-20 [1] CRAN (R 3.5.0)
+##  forcats      * 0.3.0    2018-02-19 [1] CRAN (R 3.5.0)
+##  fs             1.2.6    2018-08-23 [1] CRAN (R 3.5.0)
+##  ggforce        0.1.3    2018-07-07 [1] CRAN (R 3.5.0)
+##  ggplot2      * 3.1.0    2018-10-25 [1] CRAN (R 3.5.0)
+##  ggraph       * 1.0.2    2018-07-07 [1] CRAN (R 3.5.0)
+##  ggrepel      * 0.8.0    2018-05-09 [1] CRAN (R 3.5.0)
+##  glue           1.3.0    2018-07-17 [1] CRAN (R 3.5.0)
+##  gridExtra      2.3      2017-09-09 [1] CRAN (R 3.5.0)
+##  gtable         0.2.0    2016-02-26 [1] CRAN (R 3.5.0)
+##  here         * 0.1      2017-05-28 [1] CRAN (R 3.5.0)
+##  highr          0.7      2018-06-09 [1] CRAN (R 3.5.0)
+##  htmltools      0.3.6    2017-04-28 [1] CRAN (R 3.5.0)
+##  httr           1.3.1    2017-08-20 [1] CRAN (R 3.5.0)
+##  igraph       * 1.2.2    2018-07-27 [1] CRAN (R 3.5.0)
+##  janeaustenr    0.1.5    2017-06-10 [1] CRAN (R 3.5.0)
+##  jsonlite       1.5      2017-06-01 [1] CRAN (R 3.5.0)
+##  knitr        * 1.20     2018-02-20 [1] CRAN (R 3.5.0)
+##  labeling       0.3      2014-08-23 [1] CRAN (R 3.5.0)
+##  lattice        0.20-38  2018-11-04 [1] CRAN (R 3.5.1)
+##  lazyeval       0.2.1    2017-10-29 [1] CRAN (R 3.5.0)
+##  lubridate    * 1.7.4    2018-04-11 [1] CRAN (R 3.5.0)
+##  magrittr       1.5      2014-11-22 [1] CRAN (R 3.5.0)
+##  MASS           7.3-51.1 2018-11-01 [1] CRAN (R 3.5.0)
+##  Matrix         1.2-15   2018-11-01 [1] CRAN (R 3.5.0)
+##  memoise        1.1.0    2017-04-21 [1] CRAN (R 3.5.0)
+##  modeltools     0.2-22   2018-07-16 [1] CRAN (R 3.5.0)
+##  munsell        0.5.0    2018-06-12 [1] CRAN (R 3.5.0)
+##  nlme           3.1-137  2018-04-07 [1] CRAN (R 3.5.1)
+##  NLP            0.2-0    2018-10-18 [1] CRAN (R 3.5.0)
+##  pillar         1.3.0    2018-07-14 [1] CRAN (R 3.5.0)
+##  pkgbuild       1.0.2    2018-10-16 [1] CRAN (R 3.5.0)
+##  pkgconfig      2.0.2    2018-08-16 [1] CRAN (R 3.5.0)
+##  pkgload        1.0.2    2018-10-29 [1] CRAN (R 3.5.0)
+##  plyr           1.8.4    2016-06-08 [1] CRAN (R 3.5.0)
+##  prettyunits    1.0.2    2015-07-13 [1] CRAN (R 3.5.0)
+##  processx       3.2.0    2018-08-16 [1] CRAN (R 3.5.0)
+##  ps             1.2.1    2018-11-06 [1] CRAN (R 3.5.0)
+##  purrr        * 0.2.5    2018-05-29 [1] CRAN (R 3.5.0)
+##  R6             2.3.0    2018-10-04 [1] CRAN (R 3.5.0)
+##  RColorBrewer * 1.1-2    2014-12-07 [1] CRAN (R 3.5.0)
+##  Rcpp           1.0.0    2018-11-07 [1] CRAN (R 3.5.0)
+##  remotes        2.0.2    2018-10-30 [1] CRAN (R 3.5.0)
+##  reshape2       1.4.3    2017-12-11 [1] CRAN (R 3.5.0)
+##  rlang          0.3.0.1  2018-10-25 [1] CRAN (R 3.5.0)
+##  rmarkdown      1.10     2018-06-11 [1] CRAN (R 3.5.0)
+##  rprojroot      1.3-2    2018-01-03 [1] CRAN (R 3.5.0)
+##  rtweet       * 0.6.8    2018-09-28 [1] CRAN (R 3.5.0)
+##  scales         1.0.0    2018-08-09 [1] CRAN (R 3.5.0)
+##  sessioninfo    1.1.1    2018-11-05 [1] CRAN (R 3.5.0)
+##  slam           0.1-43   2018-04-23 [1] CRAN (R 3.5.0)
+##  SnowballC      0.5.1    2014-08-09 [1] CRAN (R 3.5.0)
+##  stringi        1.2.4    2018-07-20 [1] CRAN (R 3.5.0)
+##  stringr      * 1.3.1    2018-05-10 [1] CRAN (R 3.5.0)
+##  testthat       2.0.1    2018-10-13 [1] CRAN (R 3.5.0)
+##  tibble         1.4.2    2018-01-22 [1] CRAN (R 3.5.0)
+##  tidyr        * 0.8.2    2018-10-28 [1] CRAN (R 3.5.0)
+##  tidyselect     0.2.5    2018-10-11 [1] CRAN (R 3.5.0)
+##  tidytext     * 0.2.0    2018-10-17 [1] CRAN (R 3.5.0)
+##  tm             0.7-5    2018-07-29 [1] CRAN (R 3.5.0)
+##  tokenizers     0.2.1    2018-03-29 [1] CRAN (R 3.5.0)
+##  topicmodels  * 0.2-7    2017-11-03 [1] CRAN (R 3.5.0)
+##  tweenr         1.0.0    2018-09-27 [1] CRAN (R 3.5.0)
+##  units          0.6-1    2018-09-21 [1] CRAN (R 3.5.0)
+##  usethis        1.4.0    2018-08-14 [1] CRAN (R 3.5.0)
+##  utf8           1.1.4    2018-05-24 [1] CRAN (R 3.5.0)
+##  viridis      * 0.5.1    2018-03-29 [1] CRAN (R 3.5.0)
+##  viridisLite  * 0.3.0    2018-02-01 [1] CRAN (R 3.5.0)
+##  withr          2.1.2    2018-03-15 [1] CRAN (R 3.5.0)
+##  wordcloud    * 2.6      2018-08-24 [1] CRAN (R 3.5.0)
+##  xml2           1.2.0    2018-01-24 [1] CRAN (R 3.5.0)
+##  yaml           2.2.0    2018-07-25 [1] CRAN (R 3.5.0)
+## 
+## [1] /Library/Frameworks/R.framework/Versions/3.5/Resources/library</code></pre>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

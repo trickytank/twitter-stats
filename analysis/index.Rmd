@@ -5,10 +5,10 @@ title: "Twitter stats"
 Analysis of the following Twitter hashtags:
 
 * [BioInfoSummer2018](BioInfoSummer2018.html) - [AMSI BioInfoSummer 2018][BioInfoSummer2018], 3--7 December 2018, The University of Western Australia, Perth Australia
-* [ABACBS18](ABACBS18.html) - [Australian Bioinformatics and Computational Biology Society conference][ABACBS18], 26-28 November 2018, The University of Melbourne, Melbourne Australia
+* [ABACBS18](ABACBS18.html) - [Australian Bioinformatics and Computational Biology Society conference][ABACBS18], 26--28 November 2018, The University of Melbourne, Melbourne Australia
 * [COMBINE18](COMBINE18.html) - [COMBINE Symposium][COMBINE18], 26 November 2018, The University of Melbourne, Melbourne Australia
-* [ASHG18](ASHG18.html) - [American Society of Human Genetics 68th Annual meeting][ASHG18], 16-20 October 2018, San Diego Convention Center, San Diego USA
-* [GI2018](gi2018.html) - [Genome Informatics conference][GI2018], 17-20
+* [ASHG18](ASHG18.html) - [American Society of Human Genetics 68th Annual meeting][ASHG18], 16--20 October 2018, San Diego Convention Center, San Diego USA
+* [GI2018](gi2018.html) - [Genome Informatics conference][GI2018], 17--20
   September 2018, Wellcome Genome Campus, Hinxton UK
 
 [BioInfoSummer2018]: https://bis.amsi.org.au/ "AMSI BioInfoSummer 2018"

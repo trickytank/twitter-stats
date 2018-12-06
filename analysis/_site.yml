@@ -1,12 +1,14 @@
 name: "twitter-stats"
 output_dir: "../docs"
 navbar:
-  title: "lazappi's Twitter stats"
+  title: "Conference Twitter stats"
   left:
     - text: "Home"
       href: index.html
     - text: "Hashtags"
       menu:
+        - text: "BioInfoSummer2018"
+          href: BioInfoSummer2018.html
         - text: "ABACBS18"
           href: ABACBS18.html
         - text: "COMBINE18"

@@ -64,7 +64,7 @@ set.seed(1)
 hashtag <- "#ABACBS2018"
 conf_name <- "ABACBS 2018 conference"
 timezone <- "Australia/Melbourne"
-days <- c("2018-11-26", "2018-11-27", "2018-11-28")
+days <- c("2018-11-26", "2018-11-27", "2018-11-28", "2018-11-29", "2018-11-30")
 accent <- "#dd0c15"
 pal <- "Set1"
 kcore <- 2
